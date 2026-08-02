@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from 'https://esm.sh/react@18.3.1';
-import ReactDOM from 'https://esm.sh/react-dom@18.3.1/client';
-import htm from 'https://esm.sh/htm@3.1.1';
+const ReactObj = window.React || await import('https://esm.sh/react@18.3.1');
+const ReactDOMObj = window.ReactDOM || await import('https://esm.sh/react-dom@18.3.1/client');
+const htmObj = window.htm || (await import('https://esm.sh/htm@3.1.1')).default;
+
+const { useState, useEffect, useRef } = ReactObj;
 
 import { 
   personalInfo, 
@@ -11,7 +13,7 @@ import {
   completedProjects 
 } from './portfolioData.js';
 
-const html = htm.bind(React.createElement);
+const html = htmObj.bind(ReactObj.createElement);
 
 export function ContactButton({ label = "Contact Me", onClick }) {
   const handleClick = onClick || (() => {
@@ -624,5 +626,9 @@ export default function App() {
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(html`<${App} />`);
+  if (ReactDOMObj.createRoot) {
+    ReactDOMObj.createRoot(rootElement).render(html`<${App} />`);
+  } else {
+    ReactDOMObj.render(html`<${App} />`, rootElement);
+  }
 }
