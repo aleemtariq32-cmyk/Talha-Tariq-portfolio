@@ -650,20 +650,20 @@
       function AboutSection() {
         return html`
           <section id="about" className="relative min-h-screen flex flex-col justify-center items-center px-5 sm:px-8 md:px-10 py-24 bg-[#0C0C0C] overflow-hidden">
-            <${FadeIn} delay=${0.1} x=${-80} y=${0} duration=${0.9} className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none z-10">
-              <img src=${decorativeIcons.moon} alt="Moon Icon" className="w-[120px] sm:w-[160px] md:w-[210px] h-auto object-contain drop-shadow-xl" />
+            <${FadeIn} delay=${0.1} x=${-80} y=${0} duration=${0.9} className="absolute top-[2%] left-[-20px] md:left-[0%] pointer-events-none z-0 opacity-50">
+              <img src=${decorativeIcons.moon} alt="Moon Icon" className="w-[100px] sm:w-[140px] md:w-[180px] h-auto object-contain drop-shadow-xl" />
             <//>
 
-            <${FadeIn} delay=${0.25} x=${-80} y=${0} duration=${0.9} className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] pointer-events-none z-10">
-              <img src=${decorativeIcons.p59} alt="3D Object" className="w-[100px] sm:w-[140px] md:w-[180px] h-auto object-contain drop-shadow-xl" />
+            <${FadeIn} delay=${0.25} x=${-80} y=${0} duration=${0.9} className="absolute bottom-[-10px] left-[-30px] md:left-[-2%] pointer-events-none z-0 opacity-30">
+              <img src=${decorativeIcons.p59} alt="3D Object" className="w-[90px] sm:w-[120px] md:w-[150px] h-auto object-contain drop-shadow-xl" />
             <//>
 
-            <${FadeIn} delay=${0.15} x=${80} y=${0} duration=${0.9} className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] pointer-events-none z-10">
-              <img src=${decorativeIcons.lego} alt="Lego Icon" className="w-[120px] sm:w-[160px] md:w-[210px] h-auto object-contain drop-shadow-xl" />
+            <${FadeIn} delay=${0.15} x=${80} y=${0} duration=${0.9} className="absolute top-[2%] right-[-20px] md:right-[0%] pointer-events-none z-0 opacity-50">
+              <img src=${decorativeIcons.lego} alt="Lego Icon" className="w-[100px] sm:w-[140px] md:w-[180px] h-auto object-contain drop-shadow-xl" />
             <//>
 
-            <${FadeIn} delay=${0.3} x=${80} y=${0} duration=${0.9} className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] pointer-events-none z-10">
-              <img src=${decorativeIcons.group134} alt="3D Group" className="w-[130px] sm:w-[170px] md:w-[220px] h-auto object-contain drop-shadow-xl" />
+            <${FadeIn} delay=${0.3} x=${80} y=${0} duration=${0.9} className="absolute bottom-[-10px] right-[-30px] md:right-[-2%] pointer-events-none z-0 opacity-30">
+              <img src=${decorativeIcons.group134} alt="3D Group" className="w-[100px] sm:w-[130px] md:w-[160px] h-auto object-contain drop-shadow-xl" />
             <//>
 
             <div className="flex flex-col items-center text-center z-20 max-w-5xl mx-auto gap-8 sm:gap-10">
@@ -707,7 +707,10 @@
 
               <div className="pt-6">
                 <${FadeIn} delay=${0.6} y=${20}>
-                  <${PrimaryCTAButton} label="Let's Build Your System" />
+                  <${PrimaryCTAButton} label="Let's Build Your System" onClick=${() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }} />
                 <//>
               </div>
             </div>
@@ -1052,8 +1055,11 @@
                 <h2 className="hero-heading font-black uppercase text-3xl sm:text-5xl md:text-6xl tracking-tight mb-2">
                   Ready to Build Your System?
                 </h2>
-                <p className="text-[#D7E2EA]/70 font-light text-sm sm:text-base max-w-lg">
+                <p className="text-[#D7E2EA]/70 font-light text-sm sm:text-base max-w-lg mb-2">
                   Based in Multan, Pakistan \u2022 Engineering high-conversion websites, mobile apps, automations, and ad systems worldwide.
+                </p>
+                <p className="text-[#D7E2EA] text-sm sm:text-base">
+                  Email: <a href="mailto:talhatariq0836@gmail.com?subject=Project%20Inquiry%20-%20Digital%20Skill%20World" className="text-[#B600A8] font-medium underline hover:text-white transition-colors">talhatariq0836@gmail.com</a>
                 </p>
               </div>
 
