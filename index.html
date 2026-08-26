@@ -338,9 +338,9 @@
         }, [currentIndex, text]);
 
         return html`
-          <p className="text-[#B600A8] font-semibold uppercase tracking-widest text-[11px] sm:text-xs md:text-sm max-w-3xl mb-4 min-h-[1.5rem] flex items-center justify-center">
-            <span>${displayText}</span>
-            <span className="inline-block w-1.5 h-4 bg-[#B600A8] ml-1 animate-pulse shadow-[0_0_8px_#B600A8]"></span>
+          <p className="text-[#B600A8] font-semibold uppercase tracking-widest text-[11px] sm:text-xs md:text-sm max-w-3xl mx-auto mb-4 min-h-[2rem] sm:min-h-[1.5rem] text-center leading-relaxed px-4">
+            <span className="inline">${displayText}</span>
+            <span className="inline-block w-1.5 h-3.5 bg-[#B600A8] ml-1 align-middle animate-pulse shadow-[0_0_8px_#B600A8]"></span>
           </p>
         `;
       }
@@ -879,7 +879,7 @@
                             <strong className="text-red-700 block text-xs uppercase tracking-wider font-semibold">The Problem:</strong>
                             ${service.problem}
                           </p>
-                          <span className="inline-block mt-2 text-xs font-semibold uppercase tracking-wider text-[#7621B0] bg-[#7621B0]/10 px-3 py-1 rounded-md w-max">
+                          <span className="inline-block mt-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#7621B0] bg-[#7621B0]/10 px-3 py-1.5 rounded-lg border border-[#7621B0]/20 max-w-full leading-normal break-words">
                             ${service.builtFor}
                           </span>
                         </div>
@@ -940,8 +940,8 @@
 
               <div className="relative">
                 
-                <!-- VERTICAL CONNECTING PROGRESS LINE -->
-                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-white/10 -translate-x-1/2 hidden md:block">
+                <!-- VERTICAL CONNECTING PROGRESS LINE (RESPONSIVE FOR MOBILE & DESKTOP) -->
+                <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-1 bg-white/10 -translate-x-1/2">
                   <div
                     className="w-full bg-gradient-to-b from-[#B600A8] via-[#7621B0] to-[#BE4C00] rounded-full"
                     style=${{
@@ -951,18 +951,17 @@
                   ></div>
                 </div>
 
-                <!-- TIMELINE STEP CARDS (ALTERNATING LEFT / RIGHT SLIDE-IN) -->
-                <div className="space-y-12 md:space-y-16">
+                <!-- TIMELINE STEP CARDS (RESPONSIVE FLOWCHART) -->
+                <div className="space-y-10 md:space-y-16">
                   ${processSteps.map((step, idx) => {
                     const isEven = idx % 2 === 0;
-                    const slideX = isEven ? -60 : 60;
 
                     return html`
-                      <div key=${idx} className="relative flex flex-col md:flex-row items-center justify-between">
+                      <div key=${idx} className="relative flex flex-col md:flex-row items-start md:items-center justify-between">
                         
-                        <!-- CARD (SLIDES IN FROM LEFT IF EVEN, FROM RIGHT IF ODD) -->
-                        <div className=${`w-full md:w-[45%] ${isEven ? 'md:mr-auto md:text-right' : 'md:ml-auto md:text-left'}`}>
-                          <${FadeIn} delay=${0.1} x=${slideX} y=${0}>
+                        <!-- CARD (DESKTOP ALTERNATING, MOBILE PL-10) -->
+                        <div className=${`w-full pl-10 sm:pl-14 md:pl-0 md:w-[45%] ${isEven ? 'md:mr-auto md:text-right' : 'md:ml-auto md:text-left'}`}>
+                          <${FadeIn} delay=${0.1} y=${20}>
                             <div className="bg-[#120826] border border-white/15 rounded-3xl p-6 sm:p-8 hover:border-[#B600A8] transition-all shadow-xl">
                               <span className="text-xs font-bold uppercase tracking-widest text-[#B600A8] block mb-2">
                                 ${step.number}
@@ -977,10 +976,10 @@
                           <//>
                         </div>
 
-                        <!-- TIMELINE DOT ON CONNECTING LINE -->
-                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center">
+                        <!-- TIMELINE DOT ON CONNECTING LINE (VISIBLE ON MOBILE & DESKTOP) -->
+                        <div className="absolute left-4 sm:left-6 md:left-1/2 top-8 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 flex items-center justify-center">
                           <div
-                            className="w-6 h-6 rounded-full border-2 border-white bg-[#0C0C0C] z-10 transition-colors duration-300"
+                            className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-white bg-[#0C0C0C] z-10 transition-colors duration-300"
                             style=${{
                               borderColor: scrollProgress >= (idx / (processSteps.length - 1)) ? '#B600A8' : '#444444',
                               backgroundColor: scrollProgress >= (idx / (processSteps.length - 1)) ? '#B600A8' : '#0C0C0C',
