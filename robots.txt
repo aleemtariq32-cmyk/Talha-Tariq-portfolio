@@ -1,0 +1,5 @@
+# robots.txt for Digital Skill World (DSW) - Talha Tariq Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://talha-tariq-portfolio-ten.vercel.app/sitemap.xml

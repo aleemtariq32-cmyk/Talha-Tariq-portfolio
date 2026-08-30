@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://talha-tariq-portfolio-ten.vercel.app/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://talha-tariq-portfolio-ten.vercel.app/talha_portrait.png</image:loc>
+      <image:title>Talha Tariq - Founder of Digital Skill World</image:title>
+      <image:caption>Talha Tariq | Digital Skill World — Web, App and Automation Systems</image:caption>
+    </image:image>
+  </url>
+</urlset>
